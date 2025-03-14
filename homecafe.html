@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ssoluz Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-color: #3D1C02; /* Dark color for background */
+            --card-bg-color: #4B382A; /* Light color for cards */
+            --text-color: #ffffff; /* Light text color */
+            --secondary-color: #a87b5e; /* A warm secondary color */
+            --highlight-color: #ffffff; /* Highlight color for buttons */
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0; /* Set margin to 0 */
+            padding: 1rem 5rem; /* 1rem (or 20px) top and bottom, 5rem on sides */
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .home-intro {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://scontent.fmnl37-1.fna.fbcdn.net/v/t39.30808-6/467452661_594381316492040_4300430667128255284_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE2fsV9A16CVqHGIoLdEP7Z3rPDuzQhaR7es8O7NCFpHo1CELl0Sbikd0FCUTvHR8tNtO3kcwZhVoH6UNrz2TZ-&_nc_ohc=FAkNngC6EgcQ7kNvgEC7ECc&_nc_oc=AdhYa9aDM8XGLIjXMPBkO46KlXkTc9tn6kZodNmd_sTQQNNN6EESySbQ0AGAnFHjohQ&_nc_zt=23&_nc_ht=scontent.fmnl37-1.fna&_nc_gid=AFwb1TGN_BcxUwXfgZiEMru&oh=00_AYHoBnD-KdSW-Lgy70Z9f0dTrV1s4O-dSRqNndZZxd04nQ&oe=67D7114E') no-repeat center center/cover;
+            color: var(--text-color);
+        }
+
+        .home-intro-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            background-color: var(--highlight-color);
+            color: var(--bg-color);
+            padding: 1rem 1.75rem;
+            border: none;
+            border-radius: 30px; 
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c89a5a; /* Darker on hover */
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            margin: 2rem 0; /* Ensure some margin to separate sections */
+            text-align: center;
+            background-color: var(--card-bg-color);
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #69333333; /* Sets the footer background to white */
+            color: var(--text-color);
+            padding: 1.5rem 1rem; /* Reduced padding to make it smaller */
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px; /* Restricts width for a more compact look */
+            margin: 0 auto; /* Centers the footer content */
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px; /* Reduced minimum width for a smaller size */
+            margin: 0.5rem; /* Adjusted margin for spacing */
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+
+        .social-links i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .home-intro-content {
+                padding: 1.5rem;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+        }
+
+        .features-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--card-bg-color);
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        /* New styles for Coffee, Pastries, and Studio section */
+        .coffee-pastries-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .coffee-pastry-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 0 1rem;
+            padding: 1rem;
+            width: 250px; /* Set a fixed width for the cards */
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .coffee-pastry-card img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+        }
+
+        .coffee-pastry-card h2 {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .coffee-pastry-card p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+   
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">Ssoluz Cafe and Studio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cafe">Menu</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#studio" id="studioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Studio
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="studioDropdown">
+                                <a class="dropdown-item" href="#studio">Packages</a>
+                                <a class="dropdown-item" href="#gallery">Gallery</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#contact" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contact
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#contact-details">Contact Details</a>
+                                <a class="dropdown-item" href="#booking-form">Booking Form</a>
+                                <a class="dropdown-item" href="#faq">FAQ</a>
+                                <a class="dropdown-item" href="#map">Map</a>
+                            </div>
+                        </li>                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="home-intro" id="home">
+        <div class="home-intro-content">
+            <h1>Welcome to Ssoluz Cafe</h1>
+            <p>Rizal's first ever self-shoot studio.</p>
+        </div>
+    </section>
+
+    <section class="section" id="cafe" style="
+    background-image: url('https://softervolumes.com/wp-content/uploads/2021/02/Cafes-In-Tokyo-%E2%80%94-Tokyo-Coffee-Shop-Guide-%E2%80%94-Softer-Volumes-4.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;">
+    <h3>
+        Ssoluz Cafe and Studio: A Place to Share Your True Self
+    </h3>
+    <div class="menu-item" style="padding: 20px;">
+        <button class="cta-button" onclick="location.href='#menu';">
+            View Menu
+        </button>
+        <a href="#menu" style="color: var(--text-color); text-decoration: none;">
+            <p style="font-size: 1.5em; margin-top: 0px;">
+               <br> <img src="https://scontent.fmnl37-1.fna.fbcdn.net/v/t39.30808-6/467778449_598962196033952_1715997946999040865_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG_5h3P47xOeq57jTprJz2n_L1qZ-R3YSn8vWpn5HdhKToke54Cuv8jwy5cl2jHXfW5NO_euzSsfnQhXBcsEcZo&_nc_ohc=YO_96RODrf0Q7kNvgHxEsUm&_nc_oc=AdgfClRR_EE7NtzP2z5Y5OVW9Vp8j86iDuEYastlRZcc8JXhxeFtVpLSOyvsgGHAieg&_nc_zt=23&_nc_ht=scontent.fmnl37-1.fna&_nc_gid=AmKlJTY_1PA2ud-vL84N_ZV&oh=00_AYFpL0arkG8NjVt5N4R8fpCZqhwnuSvJEcq_q5m6l815sA&oe=67D70620" 
+                     alt="Coffee" width="25%" style="border-radius: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            </p>
+        </a>
+    </div>
+</section>
+
+<section class="section" id="studio" style="
+    background-image: url('https://wallpapers.com/images/hd/cafe-background-fxl425s6qlh6xvug.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;">
+    <div class="menu-item">
+        <button class="cta-button" onclick="location.href='#studio';">
+            Studio
+        </button>
+        <a href="#cafe" style="color: var(--text-color); text-decoration: none;"> 
+            <br><br>
+            <p style="font-size: 1.5em; margin-top: 20px;"></p>
+            <img src="https://cloudfront.slrlounge.com/wp-content/uploads/2022/06/pexels-harrison-haines-3800848.jpg" 
+                 alt="Gift Ideas" width="30%" style="border-radius: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        </a>
+    </div>
+</section>
+
+<!-- New Coffee, Pastries, and Studio Section -->
+<section class="coffee-pastries-section">
+    <div class="coffee-pastry-card">
+        <img src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2015/08/24/12/coffeecup2408a.jpg" alt="Coffee">
+        <h2>Coffee</h2>
+        <p>Indulge in our artisan pastries made daily.</p>
+    </div>
+    <div class="coffee-pastry-card">
+        <img src="https://noevalleybakery.com/cdn/shop/products/Box_12_pastries_71fbf7cf-6dd9-40c4-b48f-ba34d70adc5a_2048x.jpg?v=1600972788" alt="Pastries">
+        <h2>Pastries</h2>
+        <p>Crafted with love, our pastries are simply irresistible.</p>
+    </div>
+    <div class="coffee-pastry-card">
+        <img src="https://i.pinimg.com/originals/0d/b8/76/0db87642c9782087e49f7b989c3ede3d.jpg" alt="Studio">
+        <h2>Studio</h2>
+        <p>Capture your moments in our self-shoot studio.</p>
+    </div>
+</section>
+
+<section class="features-section">
+    <h2>Discover Your Perfect Coffee Retreat</h2>
+    <p>Enjoy a delightful coffee experience surrounded by comfort and charm.</p>
+    <div class="features-container">
+        <div class="feature-card">
+            <img src="https://i.pinimg.com/originals/54/3f/8f/543f8f5161081fc9ef2d7850ff44c2a2.jpg" alt="Cozy Atmosphere">
+            <h3>Experience Our Cozy Atmosphere</h3>
+            <p>Step into a space designed for comfort and relaxation.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://spotonwifi.com/wp-content/uploads/2018/10/gratis-cafe-wifi.png" alt="Free Wi-Fi">
+            <h3>Stay Connected with Free Wi-Fi</h3>
+            <p>Work or browse seamlessly while enjoying your favorite brew.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://citynomads.com/wp-content/uploads/2023/03/The-Cat-Cafe-767x628.jpg" alt="Pet-Friendly">
+            <h3>Bring Your Furry Friends Along</h3>
+            <p>Our pet-friendly policy ensures no one gets left behind.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Column 1: Social Links -->
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/ssoluz.cafeandstudio/" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/ssoluzcafeandstudio/" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@ssoluzcafeandstudio/" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                    <span>Tiktok</span>
+                </a>
+            </div>
+        </div>
+    
+        <!-- Column 2: Site Map -->
+        <div class="footer-column">
+            <h3>Site Map</h3>
+            <ul class="site-map">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#studio">Packages</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    
+        <!-- Column 3: Developer Info -->
+        <div class="footer-column">
+            <h3>Developers</h3>
+            <ul class="developer-list">
+                <li><a href="https://www.linkedin.com/in/naveenpablo/" target="_blank">Naveen Pablo</a></li>
+                <li><a href="#" target="_blank">James Berina</a></li>
+                <li><a href="#" target="_blank">Lorenzo Sagarbarria</a></li>
+                <li><a href="#" target="_blank">Sophia Fiona Sta Rosa</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Footer Bottom: Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Ssoluz Cafe and Studio. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
